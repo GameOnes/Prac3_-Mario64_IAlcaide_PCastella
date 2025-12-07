@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GoombaEnemy : MonoBehaviour, IRestartGameElement
@@ -77,9 +78,9 @@ public class GoombaEnemy : MonoBehaviour, IRestartGameElement
 
     public void Update()
     {
-        HandlePatrolZone();
-        HandleRaycasts();
-        HandlePlayerDistance();
+        UpdatePatrolZone();
+        UpdateRaycasts();
+        UpdatePlayerDistance();
         switch (m_State)
         {
             case TState.FRONT: UpdateFrontState(); break;
@@ -89,10 +90,9 @@ public class GoombaEnemy : MonoBehaviour, IRestartGameElement
             case TState.RIGHTJUMP: UpdateRightJumpState(); break;
             case TState.ALERT: UpdateAlertState(); break;
             case TState.CHASE: UpdateChaseState(); break;
-            case TState.BACKTOZONE: UpdateBackToZoneState(); break;
+            case TState.BACKTOZONE:  UpdateBackToZoneState(); break;
             case TState.DIE: UpdateDieState(); break;
         }
-        Debug.Log(m_State);
         AnimatorController();
     }
 
@@ -196,8 +196,8 @@ public class GoombaEnemy : MonoBehaviour, IRestartGameElement
     void SetChaseState()
     {
         m_State = TState.CHASE;
-        m_IsAlert = false;
         m_IsChasing = true;
+        Debug.Log(m_IsChasing);
     }
 
     void UpdateChaseState()
@@ -233,7 +233,6 @@ public class GoombaEnemy : MonoBehaviour, IRestartGameElement
 
     public void SetDieState()
     {
-        Debug.Log("SetDie");
         m_State = TState.DIE;
         deathPosition = transform.position;
         Vector3 l_OppositeDirection = (transform.position - m_Player.position).normalized;
@@ -255,7 +254,6 @@ public class GoombaEnemy : MonoBehaviour, IRestartGameElement
     }
     void UpdateDieState()
     {
-        Debug.Log("Dead");
         m_IsDead = true;
         
         if (m_KnockbackDirection.magnitude > 0.1f)
@@ -272,6 +270,7 @@ public class GoombaEnemy : MonoBehaviour, IRestartGameElement
         if (!m_HasStartedDeath)
         {
             m_HasStartedDeath = true;
+            m_CharacterController.enabled = false;
             StartCoroutine(DieCoroutine());
         }
     }
@@ -310,8 +309,10 @@ public class GoombaEnemy : MonoBehaviour, IRestartGameElement
             m_Speed.y += Physics.gravity.y * Time.deltaTime;
     }
 
-    void HandleRaycasts()
+    void UpdateRaycasts()
     {
+        if (m_State == TState.CHASE || m_State == TState.ALERT)
+            return;
         if (!Physics.Raycast(transform.position + transform.forward * 0.2f, Vector3.down, m_GroundRayDistance))
         {
             transform.Rotate(0, 180, 0);
@@ -322,21 +323,22 @@ public class GoombaEnemy : MonoBehaviour, IRestartGameElement
         }
     }
 
-    void HandlePlayerDistance()
+    void UpdatePlayerDistance()
     {
         float l_Distance = Vector3.Distance(transform.position, m_Player.position);
-        if (m_State == TState.BACKTOZONE || m_State == TState.DIE) return;
-
+        if (m_State == TState.DIE)
+        {
+            return;
+        }
         if (l_Distance < m_ChaseDistance && m_State != TState.ALERT && m_State != TState.CHASE)
         {
             SetAlertState();
             return;
         }
-        else if (l_Distance > m_ChaseDistance)
+        if (l_Distance > m_ChaseDistance)
         {
-            m_IsAlert = false;
-            m_IsChasing = false;
             SetFrontState();
+
             if (m_State == TState.FRONT)
             {
                 DoRandomAction();
@@ -349,10 +351,7 @@ public class GoombaEnemy : MonoBehaviour, IRestartGameElement
         if (m_State == TState.BACKTOZONE) return;
         if (!canDecide) return;
         if (m_State != TState.FRONT) return;
-
         StartCoroutine(DecisionCoroutine());
-
-
     }
 
     IEnumerator DecisionCoroutine()
@@ -361,9 +360,7 @@ public class GoombaEnemy : MonoBehaviour, IRestartGameElement
 
         float l_WaitTime = Random.Range(m_MinDecisionTime, m_MaxDecisionTime);
         yield return new WaitForSeconds(l_WaitTime);
-
         float l_Value = Random.value;
-
         if (l_Value < 0.375f) SetLeftState();
         else if (l_Value < 0.75f) SetRightState();
         else if (l_Value < 0.875f) SetLeftJumpState();
@@ -378,7 +375,7 @@ public class GoombaEnemy : MonoBehaviour, IRestartGameElement
         SetFrontState();
     }
 
-    void HandlePatrolZone()
+    void UpdatePatrolZone()
     {
         if (!m_InsidePatrol && m_State != TState.BACKTOZONE && m_State != TState.DIE && m_State != TState.CHASE)
             SetBackToZoneState();
