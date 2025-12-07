@@ -15,6 +15,7 @@ public class GameUI : MonoBehaviour
     public AnimationClip m_StayOutAnimationClip;
     public float m_ShowUIWaitTime = 1.0f;  
     private bool m_IsUIVisible = false;
+    private bool m_IsHiding = false;
     private Coroutine m_HideUICoroutine = null;
 
     private void Start()
@@ -44,9 +45,15 @@ public class GameUI : MonoBehaviour
     }
     public void ShowUI()
     {
-        if(!m_IsUIVisible)
+        if(m_IsHiding)
         {
-            Debug.Log("Show InAnimationClip");
+            m_Animation.Stop();
+            m_IsHiding = false;
+            m_Animation.Play(m_StayInAnimationClip.name);
+        }
+
+        if (!m_IsUIVisible)
+        {
             m_Animation.Play(m_InAnimationClip.name);
             m_Animation.PlayQueued(m_StayInAnimationClip.name);
             m_IsUIVisible = true;
@@ -68,6 +75,8 @@ public class GameUI : MonoBehaviour
     }
     public void HideUI()
     {
+        m_IsHiding = true;
+        m_IsUIVisible = false;
         m_Animation.Play(m_OutAnimationClip.name);
         m_Animation.PlayQueued(m_StayOutAnimationClip.name);
         m_Animation.Sample();
