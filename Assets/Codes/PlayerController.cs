@@ -97,7 +97,6 @@ public class PlayerController : MonoBehaviour, IRestartGameElement
 
     void Update()
     {
-        if(!m_IsAlive) return;
         
         Vector3 l_Right = m_Camera.transform.right;
         Vector3 l_Forward = m_Camera.transform.forward;
@@ -381,7 +380,7 @@ public class PlayerController : MonoBehaviour, IRestartGameElement
 
     }
 
-    IEnumerator DieAnimationCoroutine()
+    IEnumerator DieAnimationCoroutine() 
     {
         yield return null;
         AnimatorStateInfo l_State = m_Animator.GetCurrentAnimatorStateInfo(0);
@@ -512,6 +511,7 @@ public class PlayerController : MonoBehaviour, IRestartGameElement
         transform.rotation = m_StartRotation;
         m_GameUI.gameObject.SetActive(true);
         gameObject.SetActive(true);
+        m_IsAlive = true;
         m_CharacterController.enabled = true;
     }
 }
