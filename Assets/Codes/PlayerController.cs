@@ -189,7 +189,7 @@ public class PlayerController : MonoBehaviour, IRestartGameElement
                 if (m_IsCrouching)
                 {
                     LongJump();
-                    return;
+
                 }
                 else
                 {
@@ -371,6 +371,7 @@ public class PlayerController : MonoBehaviour, IRestartGameElement
         Debug.Log(m_LifeController.GetValue());
         if (m_LifeController.GetValue() < 1)
         {
+            m_CharacterController.enabled = false;
             StartCoroutine(DieAnimationCoroutine());
             return;
         }

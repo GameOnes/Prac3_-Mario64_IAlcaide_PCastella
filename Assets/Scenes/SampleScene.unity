@@ -163,6 +163,14 @@ PrefabInstance:
       propertyPath: m_MaxTimeToComboJump
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1557485083983562387, guid: acf091f75355df7419a024a85bec1dba, type: 3}
+      propertyPath: m_LongJumpVerticalSpeed
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1557485083983562387, guid: acf091f75355df7419a024a85bec1dba, type: 3}
+      propertyPath: m_LongJumpHorizontalSpeed
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 1594189774856647942, guid: acf091f75355df7419a024a85bec1dba, type: 3}
       propertyPath: m_LocalPosition.x
       value: 26.38
