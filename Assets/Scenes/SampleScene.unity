@@ -245,6 +245,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 395611013422938862, guid: acf091f75355df7419a024a85bec1dba, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1557485083983562387, guid: acf091f75355df7419a024a85bec1dba, type: 3}
       propertyPath: m_Camera
       value: 
@@ -545,6 +549,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Punch
       objectReference: {fileID: 0}
+    - target: {fileID: 6091529578479410364, guid: acf091f75355df7419a024a85bec1dba, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6543385953422561488, guid: acf091f75355df7419a024a85bec1dba, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -556,6 +564,10 @@ PrefabInstance:
     - target: {fileID: 7807534220068147257, guid: acf091f75355df7419a024a85bec1dba, type: 3}
       propertyPath: m_TagString
       value: Punch
+      objectReference: {fileID: 0}
+    - target: {fileID: 8173234996829156198, guid: acf091f75355df7419a024a85bec1dba, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -863,6 +875,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 119
   m_OffsetDistance: 0.5
+  m_IdleTimer: 5
 --- !u!114 &330585548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1674,7 +1687,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4857759465074785944, guid: f7664eeb354336940a557f496fdaee99, type: 3}
       propertyPath: m_Center.y
-      value: 0.75
+      value: 0.85
       objectReference: {fileID: 0}
     - target: {fileID: 8625350639967470431, guid: f7664eeb354336940a557f496fdaee99, type: 3}
       propertyPath: m_LocalPosition.x
