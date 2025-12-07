@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class GoombaEnemy : MonoBehaviour,IRestartGameElement
+public class GoombaEnemy : MonoBehaviour, IRestartGameElement
 {
     [Header("Settings")]
     public float m_WalkSpeed = 1f;
@@ -173,7 +173,7 @@ public class GoombaEnemy : MonoBehaviour,IRestartGameElement
     void UpdateAlertState()
     {
         StartCoroutine(AlertCoroutine());
-        
+
     }
     IEnumerator AlertCoroutine()
     {
@@ -225,7 +225,7 @@ public class GoombaEnemy : MonoBehaviour,IRestartGameElement
             return;
         }
 
-        Vector3 dir = new Vector3 (m_PatrolZone.position.x, transform.position.y, m_PatrolZone.position.z);
+        Vector3 dir = new Vector3(m_PatrolZone.position.x, transform.position.y, m_PatrolZone.position.z);
         transform.LookAt(dir);
         MoveForward(m_WalkSpeed);
     }
@@ -257,6 +257,7 @@ public class GoombaEnemy : MonoBehaviour,IRestartGameElement
     void UpdateDieState()
     {
         Debug.Log("Dead");
+        m_IsDead = true;
 
         if (m_KnockbackDirection.magnitude > 0.1f)
         {
@@ -282,7 +283,7 @@ public class GoombaEnemy : MonoBehaviour,IRestartGameElement
             yield return null;
             l_State = m_Animator.GetCurrentAnimatorStateInfo(0);
         }
-        while (l_State.normalizedTime < 0.41f)
+        while (l_State.normalizedTime < 1f)
         {
             yield return null;
             l_State = m_Animator.GetCurrentAnimatorStateInfo(0);
@@ -410,8 +411,7 @@ public class GoombaEnemy : MonoBehaviour,IRestartGameElement
 
     public void Kill()
     {
-        Debug.Log("Killed");
-        DropLoot(m_CoinPrefab,m_StarPrefab,m_CoinsToDrop);
+        DropLoot(m_CoinPrefab, m_StarPrefab, m_CoinsToDrop);
         gameObject.SetActive(false);
     }
 
