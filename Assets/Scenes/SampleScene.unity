@@ -930,15 +930,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 9089763519153543373, guid: c8b0664a109f52c4b947cc7e83e11e25, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 18.76
+      value: 21.07
       objectReference: {fileID: 0}
     - target: {fileID: 9089763519153543373, guid: c8b0664a109f52c4b947cc7e83e11e25, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.962
+      value: 9.47
       objectReference: {fileID: 0}
     - target: {fileID: 9089763519153543373, guid: c8b0664a109f52c4b947cc7e83e11e25, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 28.55
+      value: 30.42
       objectReference: {fileID: 0}
     - target: {fileID: 9089763519153543373, guid: c8b0664a109f52c4b947cc7e83e11e25, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1179,6 +1179,10 @@ PrefabInstance:
     - target: {fileID: 1768182711998076474, guid: f7664eeb354336940a557f496fdaee99, type: 3}
       propertyPath: m_TagString
       value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 3025625738919228686, guid: f7664eeb354336940a557f496fdaee99, type: 3}
+      propertyPath: m_ChaseSpeed
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3025625738919228686, guid: f7664eeb354336940a557f496fdaee99, type: 3}
       propertyPath: m_CoinPrefab

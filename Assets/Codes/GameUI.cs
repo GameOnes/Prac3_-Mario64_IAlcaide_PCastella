@@ -81,4 +81,5 @@ public class GameUI : MonoBehaviour
        SetLifeBar( _LifeController.GetValue() / 8.0f );
        ShowUI();
     }
+
 }
