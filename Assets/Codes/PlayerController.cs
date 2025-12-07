@@ -238,7 +238,6 @@ public class PlayerController : MonoBehaviour, IRestartGameElement
     }
     public void LongJump()
     {
-        Debug.Log("Long Jump");
         m_VerticalSpeed = m_LongJumpVerticalSpeed;
         Vector3 l_forward = transform.forward * m_LongJumpHorizontalSpeed;
         m_CharacterController.Move(l_forward * Time.deltaTime);
@@ -320,19 +319,16 @@ public class PlayerController : MonoBehaviour, IRestartGameElement
 
     bool CanAttachToElevator(Collider elevatorCollider)
     {
-        Debug.Log("Attach?");
         return Vector3.Dot(elevatorCollider.transform.up, Vector3.up) > Mathf.Cos(m_MaxAngleToAttachToElevator * Mathf.Deg2Rad);
     }
     void AttachToElevator(Collider elevatorCollider)
     {
-        Debug.Log("Attached");
         transform.SetParent(elevatorCollider.transform.parent);
         m_ElevatorCollider = elevatorCollider;
     }
 
     void DetachFromElevator()
     {
-        Debug.Log("Detached");
         transform.SetParent(null);
         UpdateUpElevator();
         m_ElevatorCollider = null;
@@ -370,7 +366,6 @@ public class PlayerController : MonoBehaviour, IRestartGameElement
         m_LifeController.AddLife(-damage);
         m_Animator.SetInteger("Life", m_LifeController.GetValue());
         m_Animator.SetTrigger("Hit");
-        Debug.Log(m_LifeController.GetValue());
         if (m_LifeController.GetValue() < 1)
         {
             m_CharacterController.enabled = false;
@@ -442,7 +437,6 @@ public class PlayerController : MonoBehaviour, IRestartGameElement
             GoombaEnemy l_GoombaEnemy = hit.collider.GetComponent<GoombaEnemy>();
             if (CanKillWithFeet(hit))
             {
-                Debug.Log("HitOnTop");
                 l_GoombaEnemy.SetDieState();
                 JumpOverEnemy();
             }

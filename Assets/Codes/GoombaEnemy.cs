@@ -10,6 +10,7 @@ public class GoombaEnemy : MonoBehaviour, IRestartGameElement
     bool m_IsChasing = false;
     bool m_IsAlert = false;
     bool m_HasStartedDeath = false;
+    bool m_IsDeactivated = false;
     public float m_JumpForce = 4f;
     public float m_GroundRayDistance = 1f;
     public float m_ForwardRayDistance = 0.6f;
@@ -78,6 +79,7 @@ public class GoombaEnemy : MonoBehaviour, IRestartGameElement
 
     public void Update()
     {
+        if (m_IsDeactivated) return;
         UpdatePatrolZone();
         UpdateRaycasts();
         UpdatePlayerDistance();
@@ -235,8 +237,7 @@ public class GoombaEnemy : MonoBehaviour, IRestartGameElement
         deathPosition = transform.position;
         Vector3 l_OppositeDirection = (transform.position - m_Player.position).normalized;
         l_OppositeDirection.y = 0;
-        m_KnockbackDirection = l_OppositeDirection * m_KnockbackForce;
-        m_IsDead = true;
+        m_KnockbackDirection = l_OppositeDirection * m_KnockbackForce; 
         m_State = TState.DIE;
     }
     void DropLoot(GameObject coinPrefab, GameObject starPrefab, int coinsAmount, Vector3 position)
@@ -254,7 +255,6 @@ public class GoombaEnemy : MonoBehaviour, IRestartGameElement
     void UpdateDieState()
     {
         m_IsDead = true;
-
         if (m_KnockbackDirection.magnitude > 0.1f)
         {
             m_CharacterController.Move(m_KnockbackDirection * Time.deltaTime);
@@ -345,7 +345,7 @@ public class GoombaEnemy : MonoBehaviour, IRestartGameElement
 
     void DoRandomAction()
     {
-        if (m_State == TState.BACKTOZONE) return;
+        if (m_State == TState.BACKTOZONE || m_State == TState.DIE) return;
         if (!canDecide) return;
         if (m_State != TState.FRONT) return;
         StartCoroutine(DecisionCoroutine());
@@ -353,6 +353,7 @@ public class GoombaEnemy : MonoBehaviour, IRestartGameElement
 
     IEnumerator DecisionCoroutine()
     {
+
         canDecide = false;
 
         float l_WaitTime = Random.Range(m_MinDecisionTime, m_MaxDecisionTime);
@@ -403,6 +404,7 @@ public class GoombaEnemy : MonoBehaviour, IRestartGameElement
         m_CharacterController.enabled = true;
         gameObject.SetActive(true);
         m_IsDead = false;
+        m_IsDeactivated = false;
         SetFrontState();
     }
 
@@ -410,6 +412,7 @@ public class GoombaEnemy : MonoBehaviour, IRestartGameElement
     {
 
         DropLoot(m_CoinPrefab, m_StarPrefab, m_CoinsToDrop, deathPosition);
+        m_IsDeactivated = true;
         gameObject.SetActive(false);
     }
 
