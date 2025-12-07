@@ -249,8 +249,8 @@ MonoBehaviour:
   m_AngleToRotate: 60
   m_PatrolZone: {fileID: 2207259363775978549}
   m_KnockbackForce: 8
-  m_CoinPrefab: {fileID: 0}
-  m_StarPrefab: {fileID: 0}
+  m_CoinPrefab: {fileID: 5802125025205209649, guid: 71cbc783a5f0ad14786f91c72dbba57d, type: 3}
+  m_StarPrefab: {fileID: 9005456711794682569, guid: 1913880f09cd7074db4c385be2495860, type: 3}
   m_CoinsToDrop: 1
   m_StarDropChance: 0.1
   m_MaxTimeToSpawnLoot: 0.5

@@ -24,8 +24,7 @@ public class LifeController
     public void SetValue(int l_Value)
     {
         m_Life = l_Value;
+        m_OnLifeChanged.Invoke(this);
     }
-
-
 }
   

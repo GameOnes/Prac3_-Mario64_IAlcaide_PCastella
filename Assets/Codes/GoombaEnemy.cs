@@ -1,13 +1,14 @@
 using System.Collections;
 using UnityEngine;
 
-public class GoombaEnemy : MonoBehaviour,IRestartGameElement
+public class GoombaEnemy : MonoBehaviour, IRestartGameElement
 {
     [Header("Settings")]
     public float m_WalkSpeed = 1f;
     public float m_ChaseSpeed = 2f;
     bool m_IsChasing = false;
     bool m_IsAlert = false;
+    bool m_HasStartedDeath = false;
     public float m_JumpForce = 4f;
     public float m_GroundRayDistance = 1f;
     public float m_ForwardRayDistance = 0.6f;
@@ -34,7 +35,7 @@ public class GoombaEnemy : MonoBehaviour,IRestartGameElement
     [Header("Loot")]
     public GameObject m_CoinPrefab;
     public GameObject m_StarPrefab;
-
+    private Vector3 deathPosition;
     public int m_CoinsToDrop = 1;
     public float m_StarDropChance = 0.1f;
     public float m_MaxTimeToSpawnLoot = 0.5f;
@@ -173,7 +174,7 @@ public class GoombaEnemy : MonoBehaviour,IRestartGameElement
     void UpdateAlertState()
     {
         StartCoroutine(AlertCoroutine());
-        
+
     }
     IEnumerator AlertCoroutine()
     {
@@ -225,7 +226,7 @@ public class GoombaEnemy : MonoBehaviour,IRestartGameElement
             return;
         }
 
-        Vector3 dir = new Vector3 (m_PatrolZone.position.x, transform.position.y, m_PatrolZone.position.z);
+        Vector3 dir = new Vector3(m_PatrolZone.position.x, transform.position.y, m_PatrolZone.position.z);
         transform.LookAt(dir);
         MoveForward(m_WalkSpeed);
     }
@@ -234,30 +235,29 @@ public class GoombaEnemy : MonoBehaviour,IRestartGameElement
     {
         Debug.Log("SetDie");
         m_State = TState.DIE;
+        deathPosition = transform.position;
         Vector3 l_OppositeDirection = (transform.position - m_Player.position).normalized;
         l_OppositeDirection.y = 0;
         m_KnockbackDirection = l_OppositeDirection * m_KnockbackForce;
         m_IsDead = true;
     }
-    void DropLoot(GameObject coinPrefab, GameObject starPrefab, int coinsAmount)
+    void DropLoot(GameObject coinPrefab, GameObject starPrefab, int coinsAmount, Vector3 position)
     {
         for (int i = 0; i < coinsAmount; i++)
         {
             float randomValue = Random.value;
-            Vector3 spawnPos = transform.position;
-            GameObject coin = Instantiate(coinPrefab, spawnPos, Quaternion.identity);
-            coin.SetActive(true);
+
+            Instantiate(coinPrefab, position, Quaternion.identity).SetActive(true);
+
             if (randomValue <= m_StarDropChance)
-            {
-                GameObject star = Instantiate(starPrefab, spawnPos, Quaternion.identity);
-                star.SetActive(true);
-            }
+                Instantiate(starPrefab, position, Quaternion.identity).SetActive(true);
         }
     }
     void UpdateDieState()
     {
         Debug.Log("Dead");
-
+        m_IsDead = true;
+        
         if (m_KnockbackDirection.magnitude > 0.1f)
         {
             m_CharacterController.Move(m_KnockbackDirection * Time.deltaTime);
@@ -269,7 +269,11 @@ public class GoombaEnemy : MonoBehaviour,IRestartGameElement
             m_Speed.y += Physics.gravity.y * Time.deltaTime;
             m_CharacterController.Move(m_Speed * Time.deltaTime);
         }
-        StartCoroutine(DieCoroutine());
+        if (!m_HasStartedDeath)
+        {
+            m_HasStartedDeath = true;
+            StartCoroutine(DieCoroutine());
+        }
     }
 
     IEnumerator DieCoroutine()
@@ -282,7 +286,7 @@ public class GoombaEnemy : MonoBehaviour,IRestartGameElement
             yield return null;
             l_State = m_Animator.GetCurrentAnimatorStateInfo(0);
         }
-        while (l_State.normalizedTime < 0.41f)
+        while (l_State.normalizedTime < 1f)
         {
             yield return null;
             l_State = m_Animator.GetCurrentAnimatorStateInfo(0);
@@ -410,8 +414,8 @@ public class GoombaEnemy : MonoBehaviour,IRestartGameElement
 
     public void Kill()
     {
-        Debug.Log("Killed");
-        DropLoot(m_CoinPrefab,m_StarPrefab,m_CoinsToDrop);
+
+        DropLoot(m_CoinPrefab, m_StarPrefab, m_CoinsToDrop, deathPosition);
         gameObject.SetActive(false);
     }
 

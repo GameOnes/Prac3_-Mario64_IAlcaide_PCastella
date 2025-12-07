@@ -2,23 +2,22 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour,IRestartGameElement
+public class PlayerController : MonoBehaviour, IRestartGameElement
 {
     public enum TPunchType
     {
-        RIGHT_HAND=0,
+        RIGHT_HAND = 0,
         LEFT_HAND,
         KICK
     }
 
     public Camera m_Camera;
-    
+
     CharacterController m_CharacterController;
     Animator m_Animator;
     Vector3 m_StartPosition;
     Quaternion m_StartRotation;
     public float m_WalkSpeed;
-    public float m_RunSpeed;
     float m_VerticalSpeed = 0.0f;
     public Transform m_LookAt;
     [Range(0.0f, 1.0f)] public float m_RotationLerpPct = 0.8f;
@@ -57,8 +56,8 @@ public class PlayerController : MonoBehaviour,IRestartGameElement
 
     [Header("UI")]
     public GameUI m_GameUI;
-    public int m_Coins=0;
-    public int m_Life =8;
+    public int m_Coins = 0;
+    public int m_Life = 8;
 
     [Header("Hit")]
     public RestartGameUI m_RestartGameUI;
@@ -68,7 +67,14 @@ public class PlayerController : MonoBehaviour,IRestartGameElement
     [Header("Input")]
     public int m_PunchMouseButtonDown = 0;
 
-    private void Awake() 
+    [Header("Long Jump")]
+    public KeyCode m_CrouchKey = KeyCode.LeftControl;
+    public float m_LongJumpHorizontalSpeed = 12f;
+    public float m_LongJumpVerticalSpeed = 8f;
+    public float m_CrouchingSpeed = 2.0f;
+    private bool m_IsCrouching = false;
+
+    private void Awake()
     {
         m_CharacterController = GetComponent<CharacterController>();
         m_Animator = GetComponent<Animator>();
@@ -116,15 +122,14 @@ public class PlayerController : MonoBehaviour,IRestartGameElement
         l_Movement.Normalize();
         float l_Speed = m_WalkSpeed;
         float l_SpeedAnimatorValue = 1.0f;
+        if (!m_IsCrouching)
+        {
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                l_Speed *= 2;
+                l_SpeedAnimatorValue = 1.5f;
+            }
 
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            l_Speed = m_RunSpeed;
-            l_SpeedAnimatorValue = 1.5f;
-        }
-        else if  (Input.GetKeyDown(KeyCode.Y))
-        {
-                Hit();
         }
 
         if (l_Movement.sqrMagnitude == 0.0f)
@@ -141,7 +146,7 @@ public class PlayerController : MonoBehaviour,IRestartGameElement
         l_Movement *= l_Speed * Time.deltaTime;
         m_VerticalSpeed += Physics.gravity.y * 1.5f * Time.deltaTime;
         l_Movement.y = m_VerticalSpeed * Time.deltaTime;
-        CollisionFlags l_CollisionFlags = m_CharacterController.Move(new Vector3 (l_Movement.x, l_Movement.y - 0.01f, l_Movement.z));
+        CollisionFlags l_CollisionFlags = m_CharacterController.Move(new Vector3(l_Movement.x, l_Movement.y - 0.01f, l_Movement.z));
 
         if (((l_CollisionFlags & CollisionFlags.CollidedBelow) != 0 && m_VerticalSpeed < 0f) || ((l_CollisionFlags & CollisionFlags.CollidedAbove) != 0 && m_VerticalSpeed > 0f))
         {
@@ -153,11 +158,19 @@ public class PlayerController : MonoBehaviour,IRestartGameElement
         UpdatePunch();
         UpdateJump();
 
-        if (Input.GetKeyDown(KeyCode.T))
+        if (Input.GetKeyDown(m_CrouchKey))
         {
-            Hit();
+            m_Animator.SetBool("IsCrouching", true);
+            m_WalkSpeed *= 0.5f;
+            m_IsCrouching = true;
         }
-        
+        else if (Input.GetKeyUp(m_CrouchKey))
+        {
+            m_Animator.SetBool("IsCrouching", false);
+            m_WalkSpeed /= 0.5f;
+            m_IsCrouching = false;
+        }
+
     }
 
     void LateUpdate()
@@ -165,15 +178,24 @@ public class PlayerController : MonoBehaviour,IRestartGameElement
         UpdateElevator();
     }
 
-    // JUMP LOGIC
-  
+
     void UpdateJump()
     {
-        if ( Input.GetKeyDown(m_JumpKeyCode))
+
+        if (Input.GetKeyDown(m_JumpKeyCode))
         {
             if (CanJump())
             {
-                Jump();
+                if (m_IsCrouching)
+                {
+                    LongJump();
+                    return;
+                }
+                else
+                {
+                    Jump();
+                }
+
             }
         }
     }
@@ -212,6 +234,19 @@ public class PlayerController : MonoBehaviour,IRestartGameElement
         m_Animator.SetBool("IsGrounded", false);
         m_CurrentJumpId = (m_CurrentJumpId + 1) % m_MaxJumps;
     }
+    public void LongJump()
+    {
+        Debug.Log("Long Jump");
+        m_VerticalSpeed = m_LongJumpVerticalSpeed;
+        Vector3 l_forward = transform.forward * m_LongJumpHorizontalSpeed;
+        m_CharacterController.Move(l_forward * Time.deltaTime);
+        m_LastJumpTime = Time.time + 0.5f;
+
+        m_Animator.SetTrigger("LongJump");
+        m_Animator.SetBool("IsGrounded", false);
+
+
+    }
 
     public void JumpOverEnemy()
     {
@@ -230,23 +265,23 @@ public class PlayerController : MonoBehaviour,IRestartGameElement
     void UpdatePunch()
     {
         if (CanPunch() && Input.GetMouseButtonDown(m_PunchMouseButtonDown))
-            
+
             Punch();
 
     }
 
     bool CanPunch()
     {
-        return !m_Animator.IsInTransition(0) && m_Animator.GetCurrentAnimatorStateInfo(0).shortNameHash == Animator.StringToHash("Movement"); 
+        return !m_Animator.IsInTransition(0) && m_Animator.GetCurrentAnimatorStateInfo(0).shortNameHash == Animator.StringToHash("Movement");
     }
-    
+
 
     void Punch()
     {
         float l_DiffLastPunchTime = Time.time - m_LastPunchTime;
         if (l_DiffLastPunchTime < m_MaxTimeToComboPunch)
         {
-            m_CurrentPunchId = (m_CurrentPunchId + 1) % 3; 
+            m_CurrentPunchId = (m_CurrentPunchId + 1) % 3;
         }
         else
         {
@@ -254,12 +289,12 @@ public class PlayerController : MonoBehaviour,IRestartGameElement
         }
         m_LastPunchTime = Time.time;
         m_Animator.SetTrigger("Punch");
-        m_Animator.SetInteger("PunchId", m_CurrentPunchId); 
+        m_Animator.SetInteger("PunchId", m_CurrentPunchId);
     }
-    
+
     public void SetActivePunch(TPunchType PunchType, bool Active)
     {
-        if(PunchType == TPunchType.RIGHT_HAND)
+        if (PunchType == TPunchType.RIGHT_HAND)
         {
             m_RightHandPunchCollider.SetActive(Active);
         }
@@ -274,7 +309,7 @@ public class PlayerController : MonoBehaviour,IRestartGameElement
     }
 
     //ENDS PUNCH LOGIC
-   
+
 
     //ELEVATOR LOGIC
 
@@ -313,7 +348,7 @@ public class PlayerController : MonoBehaviour,IRestartGameElement
         if (m_ElevatorCollider != null)
             UpdateUpElevator();
     }
-   
+
 
     // ENDS ELEVATOR LOGIC
 
@@ -328,7 +363,7 @@ public class PlayerController : MonoBehaviour,IRestartGameElement
     {
         if (CantGetDamage())
         { return; }
-        
+
         m_LastHitTime = Time.time;
         m_LifeController.AddLife(-1);
         m_Animator.SetInteger("Life", m_LifeController.GetValue());
@@ -361,7 +396,7 @@ public class PlayerController : MonoBehaviour,IRestartGameElement
     }
     bool CantGetDamage()
     {
-        return Time.time < m_LastHitTime+m_InmortalityTime;
+        return Time.time < m_LastHitTime + m_InmortalityTime;
     }
     void Die()
     {
@@ -412,7 +447,7 @@ public class PlayerController : MonoBehaviour,IRestartGameElement
         {
             hit.rigidbody.AddForceAtPosition(hit.normal * m_BridgeHitForce, hit.point);
         }
-    } 
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -447,7 +482,7 @@ public class PlayerController : MonoBehaviour,IRestartGameElement
     }
     bool CanHeal(LifeController life)
     {
-        return life.GetValue() < m_Life; 
+        return life.GetValue() < m_Life;
     }
     private void OnTriggerExit(Collider other)
     {

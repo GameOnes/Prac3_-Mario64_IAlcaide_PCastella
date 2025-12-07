@@ -23,6 +23,7 @@ public class CoinsController
     public void SetValue(int coins)
     {
         m_Coins = coins;
+        m_OnCoinsChanged.Invoke(this);
     }
 }
   
