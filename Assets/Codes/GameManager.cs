@@ -24,7 +24,6 @@ public class GameManager : MonoBehaviour
 
     public void AddRestartGameElement(IRestartGameElement restartGameElement)
     {
-        Debug.Log("Added: " +  restartGameElement);
         m_RestartGameElements.Add(restartGameElement);
     }
     
@@ -32,7 +31,6 @@ public class GameManager : MonoBehaviour
     {
         foreach (IRestartGameElement l_Element in m_RestartGameElements) 
         {
-            Debug.Log("Restarted: " + l_Element);
             l_Element.RestartGame();
         }
     }

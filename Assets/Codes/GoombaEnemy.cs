@@ -195,9 +195,8 @@ public class GoombaEnemy : MonoBehaviour, IRestartGameElement
     }
     void SetChaseState()
     {
+        m_IsChasing = true; 
         m_State = TState.CHASE;
-        m_IsChasing = true;
-        Debug.Log(m_IsChasing);
     }
 
     void UpdateChaseState()
@@ -233,12 +232,12 @@ public class GoombaEnemy : MonoBehaviour, IRestartGameElement
 
     public void SetDieState()
     {
-        m_State = TState.DIE;
         deathPosition = transform.position;
         Vector3 l_OppositeDirection = (transform.position - m_Player.position).normalized;
         l_OppositeDirection.y = 0;
         m_KnockbackDirection = l_OppositeDirection * m_KnockbackForce;
         m_IsDead = true;
+        m_State = TState.DIE;
     }
     void DropLoot(GameObject coinPrefab, GameObject starPrefab, int coinsAmount, Vector3 position)
     {
@@ -255,13 +254,12 @@ public class GoombaEnemy : MonoBehaviour, IRestartGameElement
     void UpdateDieState()
     {
         m_IsDead = true;
-        
+
         if (m_KnockbackDirection.magnitude > 0.1f)
         {
             m_CharacterController.Move(m_KnockbackDirection * Time.deltaTime);
             m_KnockbackDirection = Vector3.Lerp(m_KnockbackDirection, Vector3.zero, 5f * Time.deltaTime);
         }
-
         if (!m_CharacterController.isGrounded)
         {
             m_Speed.y += Physics.gravity.y * Time.deltaTime;
@@ -279,7 +277,6 @@ public class GoombaEnemy : MonoBehaviour, IRestartGameElement
     {
         yield return null;
         AnimatorStateInfo l_State = m_Animator.GetCurrentAnimatorStateInfo(0);
-
         while (!l_State.IsName("DeathGoomba"))
         {
             yield return null;
