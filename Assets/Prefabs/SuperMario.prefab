@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5914164369784078439}
   - component: {fileID: 4493569088927395404}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: RightFootAudio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,7 +139,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1594189774856647940}
   - component: {fileID: 1594189774845174858}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: pupil2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -181,6 +181,8 @@ SkinnedMeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -202,6 +204,7 @@ SkinnedMeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -230,9 +233,9 @@ GameObject:
   - component: {fileID: 1594189774849383044}
   - component: {fileID: 7501468558225608538}
   - component: {fileID: 1557485083983562387}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: SuperMario
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -246,7 +249,7 @@ Transform:
   m_GameObject: {fileID: 1594189774856677606}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.69916916, z: -0, w: 0.71495634}
-  m_LocalPosition: {x: 26.38, y: 9.08, z: 28.55}
+  m_LocalPosition: {x: 26.38, y: 8.962, z: 28.55}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -358,7 +361,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1594189774856647968}
   - component: {fileID: 1594189774845174850}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: glove2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -400,6 +403,8 @@ SkinnedMeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -421,6 +426,7 @@ SkinnedMeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -448,7 +454,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1594189774856647970}
   - component: {fileID: 1594189774845174860}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: hair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -490,6 +496,8 @@ SkinnedMeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -511,6 +519,7 @@ SkinnedMeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -540,7 +549,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1594189774856647972}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Global Control
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -573,7 +582,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1594189774856647974}
   - component: {fileID: 1594189774845174848}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: glove1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -615,6 +624,8 @@ SkinnedMeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -636,6 +647,7 @@ SkinnedMeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -662,7 +674,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1594189774856647976}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: PointCtrl_hand_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -693,7 +705,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1594189774856647978}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: PointCtrl_head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -725,7 +737,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1594189774856647980}
   - component: {fileID: 1594189774845174862}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: hat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -767,6 +779,8 @@ SkinnedMeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -788,6 +802,7 @@ SkinnedMeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -813,7 +828,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1594189774856647982}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: PointCtrl_hand_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -844,7 +859,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1594189774856647984}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: PointCtrl_Spine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -875,7 +890,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1594189774856647986}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: PointH_L_Ankle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -907,7 +922,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1594189774856647988}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: PointCtrl_Hip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -938,7 +953,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1594189774856647990}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: PointCtrl_neck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -969,7 +984,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1594189774856647992}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: PointH_R_Toe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1001,7 +1016,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1594189774856647994}
   - component: {fileID: 1594189774845174856}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: pupil1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1043,6 +1058,8 @@ SkinnedMeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1064,6 +1081,7 @@ SkinnedMeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -1089,7 +1107,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1594189774856647996}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: PointH_L_Toe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1120,7 +1138,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1594189774856647998}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: PointH_R_Ankle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1152,7 +1170,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1594189774856648000}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Ctrl_COG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1190,7 +1208,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1594189774856648002}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Ctrl_Core
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1227,7 +1245,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1594189774856648004}
   - component: {fileID: 1594189774845174852}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1269,6 +1287,8 @@ SkinnedMeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1290,6 +1310,7 @@ SkinnedMeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -1330,7 +1351,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1594189774856648006}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Ctrl_chest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1363,7 +1384,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1594189774856648008}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Ctrl_Knee_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1394,7 +1415,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1594189774856648010}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Ctrl_Knee_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1425,7 +1446,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1594189774856648012}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Ctrl_head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1457,7 +1478,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1594189774856648014}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Ctrl_hip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1491,7 +1512,7 @@ GameObject:
   - component: {fileID: 1594189774856648016}
   - component: {fileID: 1594189774855845188}
   - component: {fileID: 1594189774854748036}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Ctrl_Leg_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1542,6 +1563,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1563,6 +1586,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -1578,7 +1602,7 @@ GameObject:
   - component: {fileID: 1594189774856648018}
   - component: {fileID: 1594189774855845190}
   - component: {fileID: 1594189774854748038}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Ctrl_Leg_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1629,6 +1653,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1650,6 +1676,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -1663,7 +1690,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1594189774856648020}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Ctrl_L_Elbow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1694,7 +1721,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1594189774856648022}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Ctrl_L_Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1726,7 +1753,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1594189774856648024}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Ctrl_R_Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1759,7 +1786,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1594189774856648026}
   - component: {fileID: 1594189774845174854}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: face
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1801,6 +1828,8 @@ SkinnedMeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1822,6 +1851,7 @@ SkinnedMeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -1851,7 +1881,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1594189774856648028}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Ctrl_neck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1884,7 +1914,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1594189774856648030}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Ctrl_R_Elbow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1915,7 +1945,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1594189774856648032}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: bn_hip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1949,7 +1979,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1594189774856648034}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: bn_L_armlower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1981,7 +2011,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1594189774856648036}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: bn_chest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2015,7 +2045,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1594189774856648038}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: bn_head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2046,7 +2076,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1594189774856648040}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: bn_L_hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2078,7 +2108,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1594189774856648042}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: bn_L_shin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2110,7 +2140,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1594189774856648044}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: bn_L_armupper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2142,7 +2172,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1594189774856648046}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: bn_L_foot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2173,7 +2203,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1594189774856648048}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: bn_R_armlower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2205,7 +2235,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1594189774856648050}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: bn_R_armupper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2237,7 +2267,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1594189774856648052}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: bn_L_thigh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2269,7 +2299,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1594189774856648054}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: bn_neck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2301,7 +2331,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1594189774856648056}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: bn_R_shin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2333,7 +2363,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1594189774856648058}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: bn_R_thigh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2365,7 +2395,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1594189774856648060}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: bn_R_foot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2397,7 +2427,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1594189774856648062}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: bn_R_hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2432,9 +2462,9 @@ GameObject:
   - component: {fileID: 5010422636133769535}
   - component: {fileID: 5227350119545985310}
   - component: {fileID: 8173234996829156198}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: RightFootCollider
-  m_TagString: Untagged
+  m_TagString: Punch
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2482,6 +2512,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2503,6 +2535,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -2538,7 +2571,7 @@ GameObject:
   m_Component:
   - component: {fileID: 829519834860381950}
   - component: {fileID: 6929442309460492855}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: LeftFootAudio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2669,9 +2702,9 @@ GameObject:
   - component: {fileID: 5878001921719443081}
   - component: {fileID: 2160048313946354625}
   - component: {fileID: 395611013422938862}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: LeftHandCollider
-  m_TagString: Untagged
+  m_TagString: Punch
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2719,6 +2752,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2740,6 +2775,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -2774,7 +2810,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7848090629531452075}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: LookAt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2808,9 +2844,9 @@ GameObject:
   - component: {fileID: 3943767137488261671}
   - component: {fileID: 7033499495719950434}
   - component: {fileID: 6091529578479410364}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: RightHandCollider
-  m_TagString: Untagged
+  m_TagString: Punch
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2858,6 +2894,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2879,6 +2917,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
