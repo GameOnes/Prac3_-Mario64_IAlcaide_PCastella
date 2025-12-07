@@ -362,13 +362,13 @@ public class PlayerController : MonoBehaviour, IRestartGameElement
         m_CoinsController.AddCoins(1);
     }
 
-    public void Hit()
+    public void Hit(int damage)
     {
         if (CantGetDamage())
         { return; }
 
         m_LastHitTime = Time.time;
-        m_LifeController.AddLife(-1);
+        m_LifeController.AddLife(-damage);
         m_Animator.SetInteger("Life", m_LifeController.GetValue());
         m_Animator.SetTrigger("Hit");
         Debug.Log(m_LifeController.GetValue());
@@ -434,6 +434,10 @@ public class PlayerController : MonoBehaviour, IRestartGameElement
     */
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
+        if (hit.collider.CompareTag("DeathZone"))
+        {
+            Hit(8);
+        }
         if (hit.collider.CompareTag("Goomba"))
         {
             GoombaEnemy l_GoombaEnemy = hit.collider.GetComponent<GoombaEnemy>();
@@ -445,7 +449,7 @@ public class PlayerController : MonoBehaviour, IRestartGameElement
             }
             else
             {
-                Hit();
+                Hit(1);
             }
         }
         else if (hit.collider.CompareTag("Bridge"))
@@ -456,11 +460,6 @@ public class PlayerController : MonoBehaviour, IRestartGameElement
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("DeathZone"))
-        {
-            GameManager.GetGameManager().RestartGame();
-        }
-
         if (other.CompareTag("Elevator"))
         {
             if (CanAttachToElevator(other))
