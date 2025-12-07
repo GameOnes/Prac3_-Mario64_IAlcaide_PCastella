@@ -3600,6 +3600,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 143320776888021184, guid: 4f75303080a7898419d3f59e7e7c011c, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 185299044132196493, guid: 4f75303080a7898419d3f59e7e7c011c, type: 3}
       propertyPath: m_TagString
       value: Elevator
@@ -3608,9 +3612,61 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Elevator
       objectReference: {fileID: 0}
+    - target: {fileID: 4332669130922082030, guid: 4f75303080a7898419d3f59e7e7c011c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.084
+      objectReference: {fileID: 0}
+    - target: {fileID: 4332669130922082030, guid: 4f75303080a7898419d3f59e7e7c011c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.293
+      objectReference: {fileID: 0}
+    - target: {fileID: 5204317168678630483, guid: 4f75303080a7898419d3f59e7e7c011c, type: 3}
+      propertyPath: m_Size.x
+      value: 3.3003197
+      objectReference: {fileID: 0}
+    - target: {fileID: 5204317168678630483, guid: 4f75303080a7898419d3f59e7e7c011c, type: 3}
+      propertyPath: m_Size.y
+      value: 0.69481665
+      objectReference: {fileID: 0}
+    - target: {fileID: 5204317168678630483, guid: 4f75303080a7898419d3f59e7e7c011c, type: 3}
+      propertyPath: m_Size.z
+      value: 1.9225208
+      objectReference: {fileID: 0}
+    - target: {fileID: 5204317168678630483, guid: 4f75303080a7898419d3f59e7e7c011c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5204317168678630483, guid: 4f75303080a7898419d3f59e7e7c011c, type: 3}
+      propertyPath: m_Center.x
+      value: 0.010718346
+      objectReference: {fileID: 0}
+    - target: {fileID: 5204317168678630483, guid: 4f75303080a7898419d3f59e7e7c011c, type: 3}
+      propertyPath: m_Center.y
+      value: 0.044420958
+      objectReference: {fileID: 0}
+    - target: {fileID: 5204317168678630483, guid: 4f75303080a7898419d3f59e7e7c011c, type: 3}
+      propertyPath: m_Center.z
+      value: 0.1655671
+      objectReference: {fileID: 0}
+    - target: {fileID: 5204317168678630483, guid: 4f75303080a7898419d3f59e7e7c011c, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5373574556610500657, guid: 4f75303080a7898419d3f59e7e7c011c, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5808837869635566363, guid: 4f75303080a7898419d3f59e7e7c011c, type: 3}
       propertyPath: m_TagString
       value: Elevator
+      objectReference: {fileID: 0}
+    - target: {fileID: 6793220355500762899, guid: 4f75303080a7898419d3f59e7e7c011c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 6793220355500762899, guid: 4f75303080a7898419d3f59e7e7c011c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.31
       objectReference: {fileID: 0}
     - target: {fileID: 7393217473617069474, guid: 4f75303080a7898419d3f59e7e7c011c, type: 3}
       propertyPath: m_LocalPosition.x
