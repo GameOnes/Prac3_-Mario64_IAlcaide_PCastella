@@ -46,6 +46,7 @@ public class GameUI : MonoBehaviour
     {
         if(!m_IsUIVisible)
         {
+            Debug.Log("Show InAnimationClip");
             m_Animation.Play(m_InAnimationClip.name);
             m_Animation.PlayQueued(m_StayInAnimationClip.name);
             m_IsUIVisible = true;
