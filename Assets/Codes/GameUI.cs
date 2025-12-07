@@ -64,7 +64,6 @@ public class GameUI : MonoBehaviour
         {
             StopCoroutine(m_HideUICoroutine);
         }
-        
         m_HideUICoroutine = StartCoroutine(HideUICoroutine());
     }
 

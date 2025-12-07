@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour, IRestartGameElement
     Quaternion m_StartRotation;
     public float m_WalkSpeed;
     float m_VerticalSpeed = 0.0f;
+    public bool m_IsAlive = true;
     public Transform m_LookAt;
     [Range(0.0f, 1.0f)] public float m_RotationLerpPct = 0.8f;
     public float m_DampTime = 0.2f;
@@ -96,6 +97,8 @@ public class PlayerController : MonoBehaviour, IRestartGameElement
 
     void Update()
     {
+        if(!m_IsAlive) return;
+        
         Vector3 l_Right = m_Camera.transform.right;
         Vector3 l_Forward = m_Camera.transform.forward;
         Vector3 l_Movement = Vector3.zero;
@@ -401,6 +404,7 @@ public class PlayerController : MonoBehaviour, IRestartGameElement
     }
     void Die()
     {
+        m_IsAlive = false;
         m_GameUI.gameObject.SetActive(false);
         m_RestartGameUI.RestartUI();
         gameObject.SetActive(false);
@@ -491,7 +495,10 @@ public class PlayerController : MonoBehaviour, IRestartGameElement
             DetachFromElevator();
     }
 
-
+    public bool IsIdle()
+    {
+        return m_Animator.GetFloat("Speed") < 0.01f;
+    }
     public void RestartGame()
     {
         if (m_CurrentCheckPoint != null)
