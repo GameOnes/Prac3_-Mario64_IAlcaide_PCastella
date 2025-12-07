@@ -4,7 +4,14 @@
 TagManager:
   serializedVersion: 3
   tags:
-  - gukug
+  - CheckPoint
+  - Goomba
+  - Elevator
+  - Bridge
+  - Punch
+  - Coin
+  - DeathZone
+  - Star
   layers:
   - Default
   - TransparentFX
@@ -12,8 +19,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - HitCollider
+  - IgnoreCameraCollisionsLayer
   - 
   - 
   - 
