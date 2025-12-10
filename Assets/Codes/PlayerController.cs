@@ -98,8 +98,8 @@ public class PlayerController : MonoBehaviour, IRestartGameElement
     void Update()
     {
         
-        Vector3 l_Right = m_Camera.transform.right;
-        Vector3 l_Forward = m_Camera.transform.forward;
+        Vector3 l_Right = m_Camera.transform.right * Time.deltaTime;
+        Vector3 l_Forward = m_Camera.transform.forward * Time.deltaTime;
         Vector3 l_Movement = Vector3.zero;
 
         l_Right.y = 0;
